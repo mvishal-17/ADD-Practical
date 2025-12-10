@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Digital Project Rubric Evaluation</title>
+<style>
+body {
+background-color: lightblue;
+}
+form {
+text-align: center;
+}
+</style>
+</head>
+<body>
+<h1 style="text-align: center; color: red;">Digital Project Rubric Evaluation</h1>
+<br><br>
+<form>
+<label for="pw">Preparatory Work</label><br>
+<input type="number" id="pw" placeholder="prep work" min="0"><br><br>
+
+<label for="ci">Code Implementation</label><br>
+<input type="number" id="ci" placeholder="code" min="0"><br><br>
+
+<label for="ot">Output and Testing</label><br>
+<input type="number" id="ot" placeholder="output" min="0"><br><br>
+
+<label for="vv">Viva Voce</label><br>
+<input type="number" id="vv" placeholder="viva" min="0"><br><br>
+
+<input type="submit" onsubmit="evaluate()" value="Evaluate">
+</form>
+
+<script>
+function evaluate() {
+var pw = document.getElementById("pw").value;
+var code = document.getElementById("ci").value;
+var output = document.getElementById("ot").value;
+var viva = document.getElementById("vv").value;
+
+if (pw === "" || code === "" || output === "" || viva === "") {
+alert("All fields must be filled.");
+return false;
+}
+
+var total = parseInt(pw) + parseInt(code) + parseInt(output) + parseInt(viva);
+alert("Total Marks: " + total);
+
+if (total > 80) {
+alert("Grade: A");
+} else if (total > 70) {
+alert("Grade: B");
+} else if (total > 60) {
+alert("Grade: C");
+} else if (total > 50) {
+alert("Grade: D");
+} else {
+alert("FAIL");
+}
+return false; 
+}
+</script>
+</body>
+</html>
